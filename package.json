@@ -2,11 +2,13 @@
   "name": "eslint-plugin-nest-swagger-checker-lint",
   "version": "1.0.0",
   "description": "",
-  "main": "cjs/index.js",
+  "main": "./cjs/index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
+  "files": ["cjs"],
   "keywords": [],
   "author": "",
   "license": "ISC",

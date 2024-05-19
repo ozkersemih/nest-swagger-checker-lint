@@ -12,7 +12,6 @@
     "module": "commonjs",
     "target": "es6",
     "noUncheckedIndexedAccess": true,
-    "preserveSymlinks": true
   },
   "include": ["src"],
   "exclude": [
