@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "@typescript-eslint/types": "^7.7.1",
-    "nest-swagger-checker": "^1.2.0"
+    "nest-swagger-checker": "^1.2.1"
   }
 }
