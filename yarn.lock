@@ -785,10 +785,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-nest-swagger-checker@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/nest-swagger-checker/-/nest-swagger-checker-1.2.2.tgz#ff14ff28afb379fd33dabe332f0f263f0a126ed2"
-  integrity sha512-hsoQV+k4bFn08/r8ojzkUbb7ncBtKzd9twb+Mw4fPVTM5AvBbFHvCHjvzejjs5gNtd6VGaSlTpXSgEkmYQMC9A==
+nest-swagger-checker@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/nest-swagger-checker/-/nest-swagger-checker-1.2.3.tgz#78017e12b3b7748bcadb1f551c0547b9d9989538"
+  integrity sha512-uAC5DYBGi+HwaQUuLMNi9i8+vRZSCVDBJsjXoRdAXFWlp6yyhncPQKd0FS/i9Qxnd9bT3w3F50m1+Qp/9/+vBQ==
   dependencies:
     ramda "^0.30.0"
     ts-morph "^22.0.0"
