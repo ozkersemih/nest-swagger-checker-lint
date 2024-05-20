@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "@typescript-eslint/types": "^7.7.1",
-    "nest-swagger-checker": "^1.2.1"
+    "nest-swagger-checker": "^1.2.2"
   }
 }
