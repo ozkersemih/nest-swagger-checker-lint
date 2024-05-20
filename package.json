@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-nest-swagger-checker-lint",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "./cjs/index.js",
   "type": "commonjs",
