@@ -6,6 +6,7 @@ This package uses nsc(nest-swagger-checker) package inside its own.
 
 # configuration
 Like nsc package, this linter package can be configured by using `.swautomaterc` file at the root path of project.
+You can see detail of [configuration](https://github.com/ozkersemih/nest-swagger-checker?tab=readme-ov-file#configuration) 
 
 # setup
 Like other eslint plugins, this plugin needs to be added to eslintrc configuration.
