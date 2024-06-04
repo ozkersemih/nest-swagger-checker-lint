@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-nest-swagger-checker-lint",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "./cjs/index.js",
   "type": "commonjs",
@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "@typescript-eslint/types": "^7.7.1",
-    "nest-swagger-checker": "^1.2.3"
+    "nest-swagger-checker": "^1.2.5"
   }
 }
