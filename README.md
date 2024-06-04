@@ -6,6 +6,7 @@ This package uses nsc(nest-swagger-checker) package inside its own.
 
 # configuration
 Like nsc package, this linter package can be configured by using `.swautomaterc` file at the root path of project.
+You can see detail of [configuration](https://github.com/ozkersemih/nest-swagger-checker?tab=readme-ov-file#configuration) 
 
 # setup
 Like other eslint plugins, this plugin needs to be added to eslintrc configuration.
@@ -43,7 +44,10 @@ Like other eslint plugins, this plugin needs to be added to eslintrc configurati
   <br><br>
   💡 You can enable/disable this checking by setting `scopes.endpoint.information.check` config value
 
+___
+
 * There is a request param for endpoint method in below example but name in ApiParam decorator does not match with it.
+
   ```typescript
   ....
   @ApiParam({ name: 'customerId', description: 'Customer ID', type: Number, example: 60 })
@@ -54,8 +58,13 @@ Like other eslint plugins, this plugin needs to be added to eslintrc configurati
   ```
   You will get eslint error like below.
   ![Screenshot 2024-05-20 at 23 29 52](https://github.com/ozkersemih/nest-swagger-checker-lint/assets/52029025/5394631f-160e-4b92-ae84-6f85b54e1328)
+  <br><br>
+  💡 You can enable/disable this checking by setting `scopes.endpoint.params.check` config value
+
+___
 
 * If you have request parameter that given with `@Param` decorator like above but you don't have any `@ApiParam` decorator, you will also get eslint error.
+
   ```typescript
   ....
   @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: 'Request Is Not Valid' })
@@ -65,4 +74,37 @@ Like other eslint plugins, this plugin needs to be added to eslintrc configurati
   }
   ```
   ![Screenshot 2024-05-20 at 23 33 42](https://github.com/ozkersemih/nest-swagger-checker-lint/assets/52029025/eb6e319d-fdf1-495b-a688-c2d974a38422)
+  <br><br>
+  💡 You can enable/disable this checking by setting `scopes.endpoint.params.check` config value
 
+___
+
+* Lets assume you have a custom query class type for your endpoint endpoint method like below:
+
+  ```typescript
+   async getCount(..., @Query() parameters: Parameters): Promise<Count> {
+    return this.service.getCount(Number(sellerId), parameters);
+  }
+  ....
+  export class SearchParametersDto {
+  @IsInt()
+  @IsOptional()
+  @IsPositive()
+  @Type(() => Number)
+  @ApiProperty({
+    type: Number,
+    description: 'Pagination Index, Default: 1',
+    example: 1,
+    required: false,
+  })
+  public pageIndex?: number;
+  ....
+  ```
+  If you gave pattern something like that `^[A-Z][a-z0-9]*(?:\s[a-z0-9]*)*$`, you will give eslint error because your description text should be match with your pattern.
+
+  In this example, only first words first letter should be uppercase according to example pattern. Eslint error will be like below:
+  ![Screenshot 2024-05-20 at 23 50 40](https://github.com/ozkersemih/nest-swagger-checker-lint/assets/52029025/5fabba08-7f57-48cc-b776-348cfe4f2519)
+  <br><br>
+  💡 You can enable/disable this checking by setting `scopes.endpoint.query.description.check` config value and you can set pattern by setting `scopes.endpoint.query.description.pattern` value.
+
+  
