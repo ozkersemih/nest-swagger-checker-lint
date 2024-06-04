@@ -26,8 +26,8 @@ Like other eslint plugins, this plugin needs to be added to eslintrc configurati
 ```
 
 # examples
-Lets assume you have endpoint method in a controller like below:
-```typescript
+* Lets assume you have endpoint method in a controller like below:
+  ```typescript
   @Post('')
   @HttpCode(HttpStatus.OK)
   ..
@@ -35,8 +35,34 @@ Lets assume you have endpoint method in a controller like below:
   public async create(
     ...
   )
-```
-You will get eslint error because there is no ApiOperation decorator ta describe summary and description for endpoint.
+  ```
+  You will get eslint error because there is no ApiOperation decorator ta describe summary and description for endpoint.
 
-Error should be like below:
-![Screenshot 2024-05-19 at 17 28 19](https://github.com/ozkersemih/nest-swagger-checker-lint/assets/52029025/da894c4f-d03d-4917-8032-f9e5108c6f03)
+  Error should be like below:
+  ![Screenshot 2024-05-19 at 17 28 19](https://github.com/ozkersemih/nest-swagger-checker-lint/assets/52029025/da894c4f-d03d-4917-8032-f9e5108c6f03)
+  <br><br>
+  💡 You can enable/disable this checking by setting `scopes.endpoint.information.check` config value
+
+* There is a request param for endpoint method in below example but name in ApiParam decorator does not match with it.
+  ```typescript
+  ....
+  @ApiParam({ name: 'customerId', description: 'Customer ID', type: Number, example: 60 })
+  async getCount(@Param('userId') userId: string, @Query() parameters: Parameters): Promise<Count> {
+    return this.service.getCount(Number(userId), parameters);
+  }
+  ...
+  ```
+  You will get eslint error like below.
+  ![Screenshot 2024-05-20 at 23 29 52](https://github.com/ozkersemih/nest-swagger-checker-lint/assets/52029025/5394631f-160e-4b92-ae84-6f85b54e1328)
+
+* If you have request parameter that given with `@Param` decorator like above but you don't have any `@ApiParam` decorator, you will also get eslint error.
+  ```typescript
+  ....
+  @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: 'Request Is Not Valid' })
+  @ApiResponse({ status: HttpStatus.INTERNAL_SERVER_ERROR, description: 'An Error Occurred' })
+  async getCount(@Param('userId') userId: string, @Query() parameters: Paramters): Promise<Count> {
+    return this.affiliateAdService.getCount(Number(userId), searchParameters);
+  }
+  ```
+  ![Screenshot 2024-05-20 at 23 33 42](https://github.com/ozkersemih/nest-swagger-checker-lint/assets/52029025/eb6e319d-fdf1-495b-a688-c2d974a38422)
+
