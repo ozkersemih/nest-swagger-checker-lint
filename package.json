@@ -11,8 +11,12 @@
   "files": [
     "cjs"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozkersemih/nest-swagger-checker-lint.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "ozkersemih",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.1.1",
